@@ -1,0 +1,39 @@
+[project]
+name = "{{cookiecutter.project_slug}}"
+version = "0.0.1"
+description = "{{cookiecutter.description}}"
+authors = []
+dependencies = [
+    python = "^3.11.1"
+    fastapi = "^0.89.1"
+    uvicorn = "^0.20.0"
+    hypercorn = "^0.14.3"
+    pydantic = {extras = ["dotenv"], version = "^1.10.4"}
+]
+
+[project.optional-dependencies]
+pytest = "*"
+pytest-cov = "*"
+pytest-asyncio = "*"
+pytest-deadfixtures = "*"
+blue = "*"
+isort = "*"
+bandit = "*"
+requests = "*"
+bump2version = "*"
+mypy = "*"
+httpx = "*"
+
+[tool.blue]
+line-length = 120
+exclude = "(/venv|/.venv)"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+addopts = "-vv --color=yes"
+testpaths = [
+    "tests",
+]
+
+[tool.mypy]
+ignore_missing_imports = true
